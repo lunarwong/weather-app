@@ -3,12 +3,6 @@
 const Forecast = ({data}) => {
     const dailyForecast = data.list.filter(item => item.dt_txt.includes('12:00:00'))
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        
-    
-    dailyForecast.forEach( forecast => {
-        
-
-    })
     
     return(
     <>
@@ -16,14 +10,15 @@ const Forecast = ({data}) => {
         <label className="title">Daily</label>
         <table>
             <tbody>
-                {dailyForecast.map((forecast, index) => {
-                    const formattedDate = new Date(forecast.dt_txt);
+                {dailyForecast.map((data, index) => {
+                    const formattedDate = new Date(data.dt_txt);
                     const dayName = days[formattedDate.getDay()];
                     return (
                        <tr>
                         <td>{dayName}</td>
-                        <td>{forecast.main.temp}°C</td>
-                        <td>{forecast.weather[0].description}</td>
+                        <td>{data.main.temp}°C</td>
+                        <td><img alt="weather" className="weather-icon" src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`} /></td>
+                        <td>{data.weather[0].description}</td>
                     </tr> 
                     )
                 })}
