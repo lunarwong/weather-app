@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Search = ({onSearchChange})=> {
 
@@ -13,8 +13,9 @@ const Search = ({onSearchChange})=> {
 
     const submitSearch = (event) => {
         event.preventDefault();
-        setSearch(event.target.value)
-        onSearchChange(event.target.value);
+        if (search) {
+            onSearchChange(search);
+        }
     }
 
     return (

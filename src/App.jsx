@@ -2,18 +2,19 @@
 import './App.css';
 import Search from './components/Search';
 import CurrentWeather from './components/Current-weather';
+import Forecast from './components/Forecast.jsx';
 
 import { apiURL, apiKey } from './api.js'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null)
+  const [forecast, setForecast] = useState(null)
 
   const handleOnSearchChange = async (searchData) => {
     try {
       if (!searchData) return;
-      console.log(typeof searchData)
-      const searchValue = searchData.toLowerCase()
+      const searchValue = searchData.trim().toLowerCase()
       console.log(searchValue)
 
       const response = await fetch(`${apiURL}q=${searchValue}&appid=${apiKey}&units=metric`)
@@ -26,14 +27,28 @@ function App() {
         setCurrentWeather(null)
       }
 
+      const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&appid=${apiKey}&units=metric`)
+      const forecastData = await forecastResponse.json()
+      console.log(forecastData)
+
+      if (weatherData.cod === 200) {
+        setForecast(forecastData)
+      } else {
+        setForecast(null)
+      }
+
     } catch (err) {
       console.error(err)
       setCurrentWeather(null)
+      setForecast(null)
     }
     
   }
 
   console.log(currentWeather)
+  useEffect(() => {
+    handleOnSearchChange("London");
+  }, []);
 
   return (
     <>
@@ -42,7 +57,7 @@ function App() {
         onSearchChange={handleOnSearchChange}
       />
       {currentWeather && <CurrentWeather data={currentWeather}/>}
-      <h3>Weather forecast</h3>
+      {forecast && <Forecast  data={forecast}/>}
     </>
   );
 }
