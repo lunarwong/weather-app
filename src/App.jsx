@@ -42,6 +42,7 @@ function App() {
         onSearchChange={handleOnSearchChange}
       />
       {currentWeather && <CurrentWeather data={currentWeather}/>}
+      <h3>Weather forecast</h3>
     </>
   );
 }
