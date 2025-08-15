@@ -1,4 +1,4 @@
-
+import '../css/search.css'
 import { useState } from "react";
 
 const Search = ({onSearchChange})=> {
