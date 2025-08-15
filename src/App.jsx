@@ -4,12 +4,37 @@ import Search from './components/Search';
 import CurrentWeather from './components/Current-weather';
 import Forecast from './components/Forecast.jsx';
 
+import dawn from './assets/dawn.jpg';
+import noon from './assets/noon.jpg';
+import evening from './assets/evening.jpg';
+import night from './assets/night.jpg';
+
 import { apiURL, apiKey } from './api.js'
 import { useState, useEffect } from 'react';
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null)
   const [forecast, setForecast] = useState(null)
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    let bgImage;
+
+    if (hour >= 5 && hour < 12) {
+      bgImage = dawn;
+    } else if (hour >= 12 && hour < 17) {
+      bgImage = noon;
+    } else if (hour >= 17 && hour < 20) {
+      bgImage = evening;
+    } else {
+      bgImage = night;
+    }
+
+    document.body.style.backgroundImage = `url(${bgImage})`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+  }, []);
 
   const handleOnSearchChange = async (searchData) => {
     try {
@@ -56,8 +81,11 @@ function App() {
       <Search 
         onSearchChange={handleOnSearchChange}
       />
-      {currentWeather && <CurrentWeather data={currentWeather}/>}
-      {forecast && <Forecast  data={forecast}/>}
+      <div className="container">
+        {currentWeather && <CurrentWeather data={currentWeather}/>}
+        {forecast && <Forecast  data={forecast}/>}
+      </div>
+      
     </div>
   );
 }

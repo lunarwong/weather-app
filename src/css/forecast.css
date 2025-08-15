@@ -2,10 +2,16 @@
 .forecast {
     max-width: 60%;
     width: fit-content;
-    margin: 2rem auto;
+    margin: auto 0;
 
-    border-radius: 8px;
-    border: 1px solid black;
+    background: rgba(37, 37, 37, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(37, 37, 37, 0.38);
+
+    color: var(--white);
 }
 
 .forecast h4 {
@@ -26,6 +32,8 @@ table {
     
     margin: 1rem auto;
     border-spacing:  2rem 0;
+
+    font-weight: 200;
 }
 
 .weather-info {
@@ -37,6 +45,7 @@ table {
 @media screen and (max-width: 600px) {
     .forecast {
         max-width: 100%;
+        margin: 2rem auto;
     }
     
     .forecast h4 {

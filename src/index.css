@@ -12,6 +12,7 @@
   --text-color: #333;
   --border-color: #e0e0e0;
   --font-size-base: 16px;
+  --white: #FFFCFB;
 }
 
 html, body{
@@ -20,6 +21,8 @@ html, body{
   width: 100vw;
   min-width: 100%;
   overflow-x: hidden;
+
+  
 }
 
 h1, h2, h3, h4, h5, h6 {
