@@ -77,7 +77,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Hello world!</h1>
+      <h1>Hello world !</h1>
       <Search 
         onSearchChange={handleOnSearchChange}
       />

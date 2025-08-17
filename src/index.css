@@ -9,7 +9,7 @@
   --primary-color: #4a90e2;
   --secondary-color: #50e3c2;
   --background-color: #f5f7fa;
-  --text-color: #333;
+  --text-color: #1d1d1f;
   --border-color: #e0e0e0;
   --font-size-base: 16px;
   --white: #FFFCFB;
@@ -21,7 +21,7 @@ html, body{
   width: 100vw;
   min-width: 100%;
   overflow-x: hidden;
-
+  color: var(--text-color);
   
 }
 
