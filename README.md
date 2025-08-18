@@ -3,6 +3,9 @@ Live Demo of my [weather app](https://lunarwong.github.io/weather-app/)
 
 This is a personal project for practicing front-end development, with a focus on fetching API data from OpenWeather.
 ## About this project
+<img width="70%" height="70%" alt="Weather app desktop" src="https://github.com/user-attachments/assets/a6e72e9f-75c5-4f08-9730-c6a7c222d16e" /> <img width="14.3%" height="14.3%" alt="Weather app mobile" src="https://github.com/user-attachments/assets/04114c9f-d8cb-472f-8e3f-77033f288a51" />
+
+
 ### Tech used:
 JavaScript, CSS, React
 
